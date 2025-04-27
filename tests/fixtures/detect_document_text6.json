@@ -138,7 +138,7 @@
     {
       "BlockType": "LINE",
       "Confidence": 84.09191131591797,
-      "Text": "1 cetlepel olijfolie",
+      "Text": "1 eetlepel olijfolie",
       "Geometry": {
         "BoundingBox": {
           "Width": 0.3544008433818817,
@@ -736,7 +736,7 @@
     {
       "BlockType": "WORD",
       "Confidence": 76.00601959228516,
-      "Text": "cetlepel",
+      "Text": "eetlepel",
       "TextType": "HANDWRITING",
       "Geometry": {
         "BoundingBox": {
@@ -1132,7 +1132,7 @@
     {
       "BlockType": "WORD",
       "Confidence": 59.36741638183594,
-      "Text": "di",
+      "Text": "dl",
       "TextType": "HANDWRITING",
       "Geometry": {
         "BoundingBox": {

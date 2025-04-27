@@ -1464,7 +1464,7 @@
     {
       "BlockType": "LINE",
       "Confidence": 87.78677368164062,
-      "Text": "Wieg/ledikantje -t matras",
+      "Text": "Wieg/ledikantje + matras",
       "Geometry": {
         "BoundingBox": {
           "Width": 0.46021318435668945,
@@ -3582,7 +3582,7 @@
     {
       "BlockType": "WORD",
       "Confidence": 68.87063598632812,
-      "Text": "-t",
+      "Text": "+",
       "TextType": "HANDWRITING",
       "Geometry": {
         "BoundingBox": {
