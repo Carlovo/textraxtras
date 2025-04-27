@@ -7,7 +7,9 @@ authors = [
     {name = "Carlo 'carlovo' van Overbeek", email = "carlovo@gmail.com"},
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "boto3>=1.38.3",
+]
 classifiers = [
   # License
   "License :: OSI Approved :: MIT License",
@@ -19,3 +21,8 @@ classifiers = [
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "ptpython>=3.0.30",
+]
