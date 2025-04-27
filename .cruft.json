@@ -1,0 +1,18 @@
+{
+  "template": "https://github.com/Carlovo/straight_to_the_money",
+  "commit": "06e1a12a3793afa68bf98e95969ceb9cde1d1800",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "textraxtras",
+      "project_slug": "textraxtras",
+      "project_description": "Extras for Amazon's Textract API.",
+      "author_name": "Carlo 'carlovo' van Overbeek",
+      "author_email": "carlovo@gmail.com",
+      "python_version": "3.13",
+      "_template": "https://github.com/Carlovo/straight_to_the_money",
+      "_commit": "06e1a12a3793afa68bf98e95969ceb9cde1d1800"
+    }
+  },
+  "directory": null
+}

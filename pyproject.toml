@@ -1,0 +1,21 @@
+[project]
+name = "textraxtras"
+version = "0.1.0"
+description = "Extras for Amazon's Textract API."
+readme = "README.md"
+authors = [
+    {name = "Carlo 'carlovo' van Overbeek", email = "carlovo@gmail.com"},
+]
+requires-python = ">=3.13"
+dependencies = []
+classifiers = [
+  # License
+  "License :: OSI Approved :: MIT License",
+
+  # Python versions supported by the package
+  "Programming Language :: Python :: 3.13",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
