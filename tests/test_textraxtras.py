@@ -1,4 +1,5 @@
 import json
+import os
 
 from textraxtras import hello
 from unittest import TestCase
@@ -12,19 +13,26 @@ class TestSmoke(TestCase):
         self.assertEqual("Hello from textraxtras!", hello())
 
 
+def load_json_file(filepath: str):
+    with open(filepath) as json_file:
+        return json.load(json_file)
+
+
+def load_json_files(path: str) -> list:
+    filenames = next(os.walk(path))[2]
+    return [load_json_file(f"{path}/{filename}") for filename in sorted(filenames)]
+
+
 class TestQualityTestData(TestCase):
     @classmethod
     def setUpClass(cls):
-        fixture_pairs = []
-
-        for it in range(1, 8):
-            with open(f"tests/fixtures/lines{it}.json") as json_file:
-                expected_lines = json.load(json_file)
-            with open(f"tests/fixtures/detect_document_text{it}.json") as json_file:
-                detected_text = json.load(json_file)
-            fixture_pairs.append((expected_lines, detected_text))
-
-        cls._fixture_pairs = tuple(fixture_pairs)
+        cls._fixture_pairs = (
+            it
+            for it in zip(
+                load_json_files("tests/fixtures/expected_text"),
+                load_json_files("tests/fixtures/detect_document_text"),
+            )
+        )
 
     def test_all_words_present(self):
         for expected_lines, detected_text in self._fixture_pairs:
