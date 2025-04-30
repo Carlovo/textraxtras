@@ -1,8 +1,9 @@
 import json
 import os
+from typing import Any
+from unittest import TestCase
 
 from textraxtras import get_unique_words
-from unittest import TestCase
 
 
 class TestSmoke(TestCase):
@@ -10,7 +11,7 @@ class TestSmoke(TestCase):
         self.assertTrue(True)
 
 
-def load_json_file(filepath: str):
+def load_json_file(filepath: str) -> Any:
     with open(filepath) as json_file:
         return json.load(json_file)
 

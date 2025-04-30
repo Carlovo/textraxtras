@@ -1,3 +1,1 @@
-from .textraxtras import get_unique_words
-
-assert get_unique_words
+from .textraxtras import get_unique_words as get_unique_words

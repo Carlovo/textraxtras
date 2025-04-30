@@ -1,4 +1,7 @@
-def _yield_all_word_blocks(textract_response: dict) -> list[dict]:
+from typing import Generator
+
+
+def _yield_all_word_blocks(textract_response: dict) -> Generator[dict]:
     return (
         block for block in textract_response["Blocks"] if block["BlockType"] == "WORD"
     )
