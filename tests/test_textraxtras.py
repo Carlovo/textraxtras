@@ -1,16 +1,13 @@
 import json
 import os
 
-from textraxtras import hello
+from textraxtras import get_unique_words
 from unittest import TestCase
 
 
 class TestSmoke(TestCase):
     def test_sanity(self):
         self.assertTrue(True)
-
-    def test_integration(self):
-        self.assertEqual("Hello from textraxtras!", hello())
 
 
 def load_json_file(filepath: str):
@@ -21,6 +18,10 @@ def load_json_file(filepath: str):
 def load_json_files(path: str) -> list:
     filenames = next(os.walk(path))[2]
     return [load_json_file(f"{path}/{filename}") for filename in sorted(filenames)]
+
+
+def words_in_sentences(sentences: list[str]) -> set[str]:
+    return set(word for line in sentences for word in line.split(" "))
 
 
 class TestQualityTestData(TestCase):
@@ -39,13 +40,23 @@ class TestQualityTestData(TestCase):
             with self.subTest(
                 expected_lines=expected_lines, detected_text=detected_text
             ):
-                expected_word_string = " ".join(expected_lines)
-                expected_words = set(expected_word_string.split(" "))
+                expected_words = words_in_sentences(expected_lines)
 
                 detected_words = {
                     block["Text"]
                     for block in detected_text["Blocks"]
                     if block["BlockType"] == "WORD"
                 }
+
+                self.assertSetEqual(expected_words, detected_words)
+
+    def test_get_unique_words(self):
+        for expected_lines, detected_text in self._fixture_pairs:
+            with self.subTest(
+                expected_lines=expected_lines, detected_text=detected_text
+            ):
+                expected_words = words_in_sentences(expected_lines)
+
+                detected_words = get_unique_words(detected_text)
 
                 self.assertSetEqual(expected_words, detected_words)
